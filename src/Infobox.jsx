@@ -7,17 +7,11 @@ import Typography from '@mui/material/Typography';
 import CardActionArea from '@mui/material/CardActionArea';
 import './Infobox.css'
 
-export default function Infobox(){
-    let info={
-        city:"bhopal",
-        humidity:12,
-        pressure : 1006,
-        temp : 32.21 ,
-        temp_max : 32.21 ,
-        temp_min : 32.21 ,
-        weather : "clear sky"
-    }
-
+export default function Infobox({info}){
+    
+  const hot_url="https://c02.purpledshub.com/uploads/sites/41/2023/05/start-of-summer-7e03a77.jpg";
+  const cold_url="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcShtFSRRTp3OEqePz3Z6C0NsAwoKq4vrQCoNg&s";
+  const rain_url="https://cdn.girls.buzz/images/girls.buzz.max-1440x900.webp";
     return(
         <>
         <div className='Infobox'>
@@ -26,7 +20,7 @@ export default function Infobox(){
         <CardMedia
           component="img"
           height="140"
-          image="/static/images/cards/contemplative-reptile.jpg"
+          image={info.humidity>120 ? rain_url : info.temp>15 ? hot_url : cold_url}
           alt="weather img"
         />
         <CardContent>
